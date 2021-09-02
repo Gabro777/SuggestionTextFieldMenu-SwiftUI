@@ -1,7 +1,7 @@
 # SuggestionTextFieldMenu-SwiftUI
 My project about a suggestion field in swiftUI
 
-This is how it looks like the complete work!
+This is how it looks like!
 
 ![ezgif com-video-to-gif-2](https://user-images.githubusercontent.com/89965384/131913428-a17f6679-75d7-4096-bb05-9114a14e8743.gif)
 
