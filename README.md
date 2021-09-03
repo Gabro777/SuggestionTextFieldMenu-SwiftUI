@@ -15,5 +15,11 @@ So let's start from the begin!
 First of all i created a struct that will contains my universal component.
 Declare the variables that you need, in this case i declared these:
 
-<img width="724" alt="Schermata 2021-09-03 alle 09 02 44" src="https://user-images.githubusercontent.com/89965384/131964280-786ca5c5-b952-468a-8784-0a21fbfc7060.png">
+
+ `@State var names: [String] = ["Apple","Peach","Orange","Banana", "Melon", "Watermelon","Mandarin","Mulberries","Lemon","Lime","Loquat","Longan","Lychee","Grape","Pear","Kiwi","Mango"]
+    @Binding var editing: Bool
+    @Binding var inputText: String
+    @State var verticalOffset: CGFloat
+    @State var horizontalOffset: CGFloat`
+    
 
