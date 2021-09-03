@@ -21,7 +21,7 @@ Declare the variables that you need, in this case i declared these:
     
     @State var verticalOffset: CGFloat
     
-     @State var names: [String] = []
+    @State var names: [String] = []
      
     @State var horizontalOffset: CGFloat
     
