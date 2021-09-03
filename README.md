@@ -15,11 +15,14 @@ So let's start from the begin!
 First of all i created a struct that will contains my universal component.
 Declare the variables that you need, in this case i declared these:
 
-
- `@State var names: [String] = ["Apple","Peach","Orange","Banana", "Melon", "Watermelon","Mandarin","Mulberries","Lemon","Lime","Loquat","Longan","Lychee","Grape","Pear","Kiwi","Mango"]
     @Binding var editing: Bool
+    
     @Binding var inputText: String
+    
     @State var verticalOffset: CGFloat
-    @State var horizontalOffset: CGFloat`
+    
+     @State var names: [String] = []
+     
+    @State var horizontalOffset: CGFloat
     
 
