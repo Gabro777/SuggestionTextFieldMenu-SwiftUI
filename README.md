@@ -27,11 +27,46 @@ Declare the variables that you need, in this case i declared these:
     
 
 after i decided to filter my array in that way:
-`
-private var filteredTexts: Binding<[String]> { Binding (
+
+    private var filteredTexts: Binding<[String]> { Binding (
         get: {
             return names.filter { $0.contains(inputText) && $0.prefix(1) == inputText.prefix(1) } },
         set: { _ in })
     }
     
+ I added an initializer with all that i need:
+ 
+     public init(editing: Binding<Bool>, text: Binding<String>, verticalOffset: CGFloat, horizontalOffset: CGFloat) {
+        self._editing = editing
+        self._inputText = text
+        self.verticalOffset = verticalOffset
+        self.horizontalOffset = horizontalOffset
+    }
     
+    
+ And here the core part, inside the body Add in this order: ScrollView , LazyVStack and a ForEach to handle the showing of the view
+ here's the code:
+ 
+     ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(filteredTexts.wrappedValue, id: \.self) { textSearched in
+                        Text(textSearched)
+                            .contentShape(Rectangle())
+                            .onTapGesture(perform: {
+                                inputText = textSearched
+                                editing = false
+                                self.endTextEditing()
+                            })
+                        Divider()
+                            .padding(.horizontal, 10)
+                    }
+                }
+            }.frame(maxWidth: .infinity,
+               minHeight: 0,
+               maxHeight: 50 * CGFloat( (filteredTexts.wrappedValue.count > 3 ? 3: filteredTexts.wrappedValue.count)))
+    
+
+Finally, to use this just add a ZStack and inside put SuggestionTextFieldMenu, based on the position you can show it above or under a textfield.
+This method is not perfect, i tried to add a textfield directly inside the universal component but when the small view comes up the entire view will move. 
+Please if you know how to reach that goal feel free to text me! Enjoy
+
