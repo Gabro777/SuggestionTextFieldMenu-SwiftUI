@@ -26,3 +26,12 @@ Declare the variables that you need, in this case i declared these:
     @State var horizontalOffset: CGFloat
     
 
+after i decided to filter my array in that way:
+`
+private var filteredTexts: Binding<[String]> { Binding (
+        get: {
+            return names.filter { $0.contains(inputText) && $0.prefix(1) == inputText.prefix(1) } },
+        set: { _ in })
+    }
+    
+    
