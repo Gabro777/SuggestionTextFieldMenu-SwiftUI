@@ -6,14 +6,13 @@ This is how it looks like!
 ![ezgif com-video-to-gif-2](https://user-images.githubusercontent.com/89965384/131913428-a17f6679-75d7-4096-bb05-9114a14e8743.gif)
 
 
+You can fill an array of objects and decide how many lines you want to show. I decided to show just a max of 3 lines and reduce them one by one through the filter. 
 
-You can fill an array of objects and decide how many lines you want to show. I decided to show just max 3 lines and reduce them one by one through the filter. 
-
-So let's start from the begin!
+So let's start from the beginning!
 
 
-First of all i created a struct that will contains my universal component.
-Declare the variables that you need, in this case i declared these:
+First of all,  I created a struct that will contain my universal component.
+Declare the variables that you need, in this case, I declared these:
 
     @Binding var editing: Bool
     
@@ -34,7 +33,7 @@ after i decided to filter my array in that way:
         set: { _ in })
     }
     
- I added an initializer with all that i need:
+I added an initializer with all that I need:
  
      public init(editing: Binding<Bool>, text: Binding<String>, verticalOffset: CGFloat, horizontalOffset: CGFloat) {
         self._editing = editing
@@ -44,8 +43,8 @@ after i decided to filter my array in that way:
     }
     
     
- And here the core part, inside the body Add in this order: ScrollView , LazyVStack and a ForEach to handle the showing of the view
- here's the code:
+And here the core part, inside the body Add in this order: ScrollView, LazyVStack, and a ForEach to handle the showing of the view
+here's the code:
  
      ScrollView {
                 LazyVStack(spacing: 0) {
@@ -66,7 +65,6 @@ after i decided to filter my array in that way:
                maxHeight: 50 * CGFloat( (filteredTexts.wrappedValue.count > 3 ? 3: filteredTexts.wrappedValue.count)))
     
 
-Finally, to use this just add a ZStack and inside put SuggestionTextFieldMenu, based on the position you can show it above or under a textfield.
-This method is not perfect, i tried to add a textfield directly inside the universal component but when the small view comes up the entire view will move. 
-Please if you know how to reach that goal feel free to text me! Enjoy
-
+Finally, to use this just add a ZStack and inside put SuggestionTextFieldMenu, based on the position, you can show it above or under a text field.
+This method is not perfect, I tried to add a text field directly inside the universal component but when the small view comes up the entire view move. 
+Please if you know how to reach that goal feel free to text me! Cheers
